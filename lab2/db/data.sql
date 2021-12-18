@@ -17,3 +17,5 @@ INSERT INTO public.books_by_authors (bid, aid, id) VALUES (20, 2, 3000);
 INSERT INTO public.books_by_authors (bid, aid, id) VALUES (30, 3, 4000);
 INSERT INTO public.books_by_authors (bid, aid, id) VALUES (40, 4, 5000);
 INSERT INTO public.books_by_authors (bid, aid, id) VALUES (50, 5, 6000);
+
+INSERT INTO public.users (name, pass) VALUES ('user', '01cfcd4f6b8770febfb40cb906715822');

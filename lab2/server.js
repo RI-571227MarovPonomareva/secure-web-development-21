@@ -12,9 +12,9 @@ app.use(express.urlencoded({
 
 const client = new Client({ //Вставьте свои параметры БД
     user: 'postgres',
-    host: '192.168.121.137', 
+    host: '127.0.0.1', 
     database: 'lib',
-    password: 'P@ssw0rd',
+    password: '12345',
     port: 5432,
 });
 client.connect();
@@ -32,7 +32,11 @@ app.get('/books', async (req, res) => {
                   left join author a on a.id = ba.aid
                   left join book b on b.id = ba.bid`;
     if(bookname){
-        sql+=`\rwhere b.name like '%${bookname}%'`        
+        sql+={
+            text:"\rwhere b.name like '%$1%'",
+            values: [bookname]
+        };
+       
     }
     try{
         let data = await client.query(sql);
